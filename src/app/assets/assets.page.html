@@ -1,0 +1,41 @@
+<app-header [headerText]="main"></app-header>
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row class="header">
+      <ion-col col class="text-left">
+        <ion-label>#</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>Asset Name</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>Asset Category</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>Price</ion-label>
+      </ion-col>
+    </ion-row>
+    <ng-container>
+      <ion-row style="border-bottom: groove;" *ngFor="let item of list; let i=index;">
+        <ion-col col class="text-left" style="width:10px">
+          <ion-label>{{i + 1}}</ion-label>
+        </ion-col>
+        <ion-col col class="text-left">
+          <ion-label>{{item.assetName}}</ion-label>
+        </ion-col>
+        <ion-col col class="text-left">
+          <ion-label>{{item.assetCategory}}</ion-label>
+        </ion-col>
+        <ion-col col class="text-left">
+          <ion-label>{{item.assetPrice}}</ion-label>
+        </ion-col>
+      </ion-row>
+    </ng-container>
+
+    <ion-card *ngIf="list?.length == 0">
+      <ion-card-content>
+        <p><strong>No Result Found.</strong></p>
+      </ion-card-content>
+    </ion-card>
+  </ion-grid>
+</ion-content>

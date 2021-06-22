@@ -1,0 +1,88 @@
+<app-header [headerText]="main"></app-header>
+<ion-content [fullscreen]="true">
+  <div padding>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <h1>About Us</h1>
+          <h4><small>Alert Care &amp; Construction Services Pvt. Ltd.</small></h4>
+          <h4><small>ISO 9001-2015 &amp; 14001-2015/OHSAS 18001-2007 Certified Company</small></h4>
+          <h4><small><strong>Salim Akbar Shaikh (Chairman & Managing Director)</strong></small></h4>
+        </ion-col>
+        <ion-col size="12">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle>QR Based Attendance</ion-card-subtitle>
+              <ion-card-title>QR Based Attendance</ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+              There are many ways of collecting attendance, Manual Location, Facial Recognition, Barcode.
+            </ion-card-content>
+          </ion-card>
+          <!-- <ion-card>
+            <img src="../../assets/icon/contact.png" />
+          </ion-card> -->
+          <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle>Configurable Rules</ion-card-subtitle>
+              <ion-card-title>Configurable Rules</ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+              Configure your attendance and salary rules smoothly, employee level changes are also possible.
+            </ion-card-content>
+          </ion-card>
+          <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle>Single Click Payroll</ion-card-subtitle>
+              <ion-card-title>Single Click Payroll</ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+              Advance management and payroll generation is no more a headache, try it once!
+            </ion-card-content>
+          </ion-card>
+          <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle>Analytical Reporting</ion-card-subtitle>
+              <ion-card-title>Analytical Reporting</ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+              Generate all important reports from system directly, no manual effort required.
+            </ion-card-content>
+          </ion-card>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+  </div>
+
+  <!-- fab placed in the center of the content with a list on each side -->
+  <ion-fab vertical="bottom" color="primary" horizontal="center" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="share"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button (click)="openSocial('instagram')">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+    <ion-fab-list side="bottom">
+      &nbsp;
+    </ion-fab-list>
+    <ion-fab-list side="start">
+      <ion-fab-button (click)="openSocial('facebook')">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+    <ion-fab-list side="end">
+      <ion-fab-button (click)="openSocial('twitter')">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

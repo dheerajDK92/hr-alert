@@ -1,0 +1,157 @@
+<ion-header translucent no-border>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start" (click)="cancelPopUp()">
+      <ion-button color="light">
+        <ion-icon name="arrow-back"></ion-icon>&nbsp;
+        Back
+      </ion-button>
+    </ion-buttons>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen="true" slot="fixed">
+  <!--Add -->
+  <div *ngIf="!updateTaskSection">
+    <h2 class="ion-text-center">Add Task Details</h2>
+    <!-- content  -->
+    <ion-list padding>
+      <ion-item>
+        <ion-label>Area Of Work</ion-label>
+        <ion-input name="startDate" [(ngModel)]="taskDetails.areaOfWork"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>General Cleaning(Dusting,Sweeping,Brushing)</ion-label>
+        <ion-select name="reason" [(ngModel)]="taskDetails.generalCleaning">
+          <ion-select-option *ngFor="let reason of reasonList" [value]="reason.name">
+            {{reason.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Damp Mopping</ion-label>
+        <ion-select name="reason" [(ngModel)]="taskDetails.dampMopping">
+          <ion-select-option *ngFor="let reason of reasonList" [value]="reason.name">
+            {{reason.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Washing & Scrubbing Manually/Machine</ion-label>
+        <ion-select name="reason" [(ngModel)]="taskDetails.washingScrubbing">
+          <ion-select-option *ngFor="let reason of reasonList" [value]="reason.name">
+            {{reason.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Litter Picking</ion-label>
+        <ion-select name="reason" [(ngModel)]="taskDetails.litterPicking">
+          <ion-select-option *ngFor="let reason of reasonList" [value]="reason.name">
+            {{reason.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+    </ion-list>
+    <ion-grid>
+      <ion-row ion-content>
+        <ion-col size="8">
+          <ion-button color="primary" (click)="save()">Add Task</ion-button>
+        </ion-col>
+        <ion-col size="4">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+
+  <!--Update -->
+  <div *ngIf="updateTaskSection">
+    <h2 class="ion-text-center">Update Task Details</h2>
+    <!-- content  -->
+    <ion-list padding>
+      <ion-item>
+        <ion-label>Area Of Work</ion-label>
+        <ion-input name="startDate" [(ngModel)]="taskDetails.areaOfWork"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>General Cleaning(Dusting,Sweeping,Brushing)</ion-label>
+        <ion-select name="reason" [(ngModel)]="taskDetails.generalCleaning">
+          <ion-select-option *ngFor="let reason of reasonList" [value]="reason.name">
+            {{reason.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Damp Mopping</ion-label>
+        <ion-select name="reason" [(ngModel)]="taskDetails.dampMopping">
+          <ion-select-option *ngFor="let reason of reasonList" [value]="reason.name">
+            {{reason.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Washing & Scrubbing Manually/Machine</ion-label>
+        <ion-select name="reason" [(ngModel)]="taskDetails.washingScrubbing">
+          <ion-select-option *ngFor="let reason of reasonList" [value]="reason.name">
+            {{reason.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Litter Picking</ion-label>
+        <ion-select name="reason" [(ngModel)]="taskDetails.litterPicking">
+          <ion-select-option *ngFor="let reason of reasonList" [value]="reason.name">
+            {{reason.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+    </ion-list>
+    <ion-grid>
+      <ion-row ion-content>
+        <ion-col size="6">
+          <ion-button size="small" [disabled]="btndisable" color="primary" (click)="updateTaskRequest()">Update
+          </ion-button>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button size="small" [disabled]="btndisable" color="danger" (click)="cancelUpdate()">Cancel</ion-button>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button size="small" [disabled]="btndisable" color="danger" (click)="deleteTask()">Delete</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+
+
+  <ion-grid>
+    <ion-list>
+      <ion-list-header>
+        <strong>Task List's</strong>
+      </ion-list-header>
+
+      <ion-item *ngFor="let item of taskList">
+        <ion-avatar slot="end">
+          <ion-fab-button (click)="updateTask(item)">
+            <ion-icon name="create-outline"></ion-icon>
+          </ion-fab-button>
+        </ion-avatar>
+        <ion-label>
+          <h2>{{item?.areaOfWork}}</h2>
+          <h3>{{item?.generalCleaning}}</h3>
+          <p>{{item?.WashingSucrubbing}}</p>
+          <p>{{item?.LitterPicking}}</p>
+          <p>{{item?.DampMoping}}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item *ngIf="taskList?.length == 0">
+        <ion-label>
+          <h2>No Result Found</h2>
+        </ion-label>
+      </ion-item>
+
+    </ion-list>
+  </ion-grid>
+  <!-- content end -->
+  <!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="cancelPopUp()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-fab-button>
+  </ion-fab> -->
+</ion-content>

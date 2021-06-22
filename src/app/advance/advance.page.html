@@ -1,0 +1,60 @@
+<app-header [headerText]="main"></app-header>
+<ion-content *ngIf="skelenton">
+  <app-skeleton></app-skeleton>
+</ion-content>
+<ion-content *ngIf="!skelenton">
+  <form #form="ngForm" (ngSubmit)="submitAdvanceForm(form)">
+    <ion-grid>
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="6" size-xs="12">
+          <div padding>
+            <ion-item>
+              <ion-label position="floating">Advance Type:<sup class="required">*</sup></ion-label>
+              <ion-select ngModel name="advanceType" multiple="false" placeholder="Advance Type...">
+                <ion-select-option value="Fixed">Fixed
+                </ion-select-option>
+              </ion-select>
+            </ion-item>
+          </div>
+        </ion-col>
+        <ion-col align-self-center size-md="6" size-lg="6" size-xs="12">
+          <div padding>
+            <ion-item>
+              <ion-label position="floating">Expense Date:<sup class="required">*</sup></ion-label>
+              <ion-datetime name="expenseDate" ngModel displayFormat="MM/DD/YYYY">
+              </ion-datetime>
+            </ion-item>
+          </div>
+        </ion-col>
+        <ion-col align-self-center size-md="6" size-lg="6" size-xs="12">
+          <div padding>
+            <ion-item>
+              <ion-label position="floating">Amount:<sup class="required">*</sup></ion-label>
+              <ion-input name="amount" type="number" placeholder="Amount..." ngModel required></ion-input>
+            </ion-item>
+          </div>
+        </ion-col>
+        <ion-col size-md="6" size-lg="6" size-xs="12">
+          <ion-item>
+            <ion-label position="floating">Remarks:<sup class="required">*</sup></ion-label>
+            <ion-textarea name="remarks" type="text" placeholder="Remarks..." ngModel>
+            </ion-textarea>
+          </ion-item>
+        </ion-col>
+
+        <ion-col size-md="6" size-lg="6" size-xs="12">
+          <div padding>
+            <ion-button type="submit" size="small" type="submit" expand="block">Apply</ion-button>
+          </div>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+  </form>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="backButton()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,15 @@
+<app-header [headerText]="main"></app-header>
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" text-left *ngFor="let item of slips">
+        <ion-card div class="card" (click)="downloadPaySlip(item)">
+          <img height="80" src="../../assets/icon/pdf.png" />
+          <ion-card-header>
+            <ion-card-subtitle><strong>{{item?.month}}</strong></ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

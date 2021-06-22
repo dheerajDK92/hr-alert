@@ -1,0 +1,55 @@
+<app-header [headerText]="main"></app-header>
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" text-left *ngIf="EmpData.isHrAdmin">
+        <ion-card div class="card" (click)="openTask('scheduleTask')">
+          <img height="80" src="../../assets/icon/empDirectory.png" />
+          <ion-card-header>
+            <ion-card-subtitle><strong>Schedule Task</strong></ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <!-- <ion-col size="6" text-left>
+        <ion-card div class="card" (click)="openTask('unscheduleTask')">
+          <img height="80" src="../../assets/icon/detailReport.png" />
+          <ion-card-header>
+            <ion-card-subtitle><strong>Un Schedule Task</strong></ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col> -->
+      <ion-col size="6" text-left *ngIf="EmpData.isHrAdmin">
+        <ion-card div class="card" (click)="openTask('addTask')">
+          <img height="80" src="../../assets/icon/configurationRules.png" />
+          <ion-card-header>
+            <ion-card-subtitle><strong>Add Task</strong></ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <!-- <ion-col size="6" text-left>
+        <ion-card div class="card" (click)="openTask('pendingTask')">
+          <img height="80" src="../../assets/icon/analyticsReporting.png" />
+          <ion-card-header>
+            <ion-card-subtitle><strong>Pending Task</strong></ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col> -->
+      <ion-col size="6" text-left>
+        <ion-card div class="card" (click)="openTask('jobCompleted')">
+          <img height="80" src="../../assets/icon/empDirectory.png" />
+          <ion-card-header>
+            <ion-card-subtitle><strong>Job Completed Today</strong></ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6" text-left>
+        <ion-card div class="card" (click)="openTask('jobPending')">
+          <img height="80" src="../../assets/icon/configurationRules.png" />
+          <ion-card-header>
+            <ion-card-subtitle><strong>My Job's</strong></ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

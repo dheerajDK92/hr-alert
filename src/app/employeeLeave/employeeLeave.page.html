@@ -1,0 +1,63 @@
+<app-header [headerText]="main"></app-header>
+<ion-content *ngIf="skelenton">
+  <app-skeleton></app-skeleton>
+</ion-content>
+<ion-content *ngIf="!skelenton">
+  <ion-content class="has-header">
+
+    <!-- <p>{{selectedObject | json}}</p>
+          <p>{{eventSource | json}}</p> -->
+    <!-- <calendar [monthviewEventDetailTemplate]="template" [eventSource]="eventSource" [markDisabled]="markDisabled"
+      [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate"
+      (onCurrentDateChanged)="onCurrentDateChanged($event)" (onEventSelected)="onEventSelected($event)"
+      (onTitleChanged)="onViewTitleChanged($event)" (onTimeSelected)="onTimeSelected($event)" step="30">
+    </calendar> -->
+
+    <ion-list padding>
+      <ion-item>
+        <ion-label>Start Date</ion-label>
+        <ion-datetime name="startDate" displayFormat="MM/DD/YYYY" [(ngModel)]="leaveEvent.startDate"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>End Date</ion-label>
+        <ion-datetime name="endDate" displayFormat="MM/DD/YYYY" [(ngModel)]="leaveEvent.endDate" [min]="minDate" [max]="maxData">
+        </ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Select Reason</ion-label>
+        <ion-select name="reason" [(ngModel)]="leaveEvent.reason">
+          <ion-select-option *ngFor="let reason of reasonList"
+            [value]="reason.name">
+            {{reason.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>All Day?</ion-label>
+        <ion-checkbox name="allDay" [(ngModel)]="leaveEvent.allDay"></ion-checkbox>
+      </ion-item>
+    </ion-list>
+    <ion-grid>
+      <ion-row ion-content>
+        <ion-col size="8">
+          <ion-button color="primary" (click)="save()">Apply Leave</ion-button>
+        </ion-col>
+        <ion-col size="4">
+          <!-- <ion-select [(ngModel)]="calendar.mode">
+            <ion-select-option (ionSelect)="onOptionSelected($event)" *ngFor="let mode of calendarModes"
+              [value]="mode.key">
+              {{mode.value}}
+            </ion-select-option>
+          </ion-select> -->
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="backButton()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

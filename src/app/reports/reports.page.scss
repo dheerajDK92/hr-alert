@@ -1,0 +1,32 @@
+ion-menu-button {
+  color: var(--ion-color-primary);
+}
+.header .col {
+  background-color:lightgrey;
+}
+
+.col {
+  border: solid 1px grey;
+  border-bottom-style: none;
+  border-right-style: none;
+}
+
+.col:last-child {
+  border-right: solid 1px grey;
+}
+
+.row:last-child .col {
+  border-bottom: solid 1px grey;
+}
+.header{
+  border-bottom: groove;
+  background: #ffc409;
+  color: #333;
+}
+ion-row, ion-col {
+  font-size: 0.7em;
+}
+ion-button.actionBtn {
+  font-size: 0.6em;
+  float: right;
+}

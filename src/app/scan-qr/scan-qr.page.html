@@ -1,0 +1,25 @@
+<app-header [headerText]="main"></app-header>
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <p>Please click on below scan button to mark attendance of your employee by scanning QR Code.</p>
+    <p *ngIf="msg !== ''" color="success">
+      <strong> {{msg}}</strong>
+    </p>
+  </ion-grid>
+
+
+
+  <!-- Fab icons - start -->
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="scanBarcode()">
+      <ion-icon name="scan-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="backButton()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <!-- Fab icons - end -->
+
+</ion-content>

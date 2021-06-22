@@ -1,0 +1,32 @@
+<app-header [headerText]="main"></app-header>
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <p>Please Select Site to <strong>Download QR Code</strong> for Employee's <strong>By Site</strong>.</p>
+    <p *ngIf="EmpData.isReportingManager && !EmpData.isHrAdmin">You Have Permission To Download QR Code for `{{EmpData.Site}}`</p>
+    <!-- select site -->
+    <ion-item>
+      <ion-label position="floating">Select Site:<sup class="required">*</sup></ion-label>
+      <ion-select ngModel [(ngModel)]="siteSelected" multiple="false" placeholder="Select Site...">
+        <ion-select-option *ngFor="let item of sites" [value]="item">{{item}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+    <!-- site end -->
+  </ion-grid>
+
+
+
+  <!-- Fab icons - start -->
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="downloadSiteBarcode()">
+      <ion-icon name="download-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="backButton()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <!-- Fab icons - end -->
+
+</ion-content>

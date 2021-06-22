@@ -1,0 +1,23 @@
+<ion-header translucent no-border>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start" (click)="cancelPopUp()">
+      <ion-button color="light">
+        <ion-icon name="arrow-back"></ion-icon>&nbsp;
+        Back
+      </ion-button>
+    </ion-buttons>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <div id="container" class="text-center">
+    <p>{{empData.empname}} QR Code</p>
+    <ngx-qrcode [elementType]="elementType" [value]="value" cssClass="qrClass" errorCorrectionLevel="L">
+    </ngx-qrcode>
+    <div>
+      <ion-button size="small" color="primary" (click)="downloadQRCode()">
+        <ion-icon name="download-outline"></ion-icon> Download
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

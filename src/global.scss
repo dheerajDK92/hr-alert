@@ -1,0 +1,101 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+hr { border: 1px solid #89939f !important; padding: 0px !important; border-width: 0px; height: 0px !important; }
+.list-header {
+    font-size: 1em !important;
+    font-weight: 500 !important;
+}
+.pointer{
+    cursor: pointer;
+}
+.required{color: red;}
+text.highcharts-credits {
+    display: none;
+}
+.qrClass  > img {
+    width: 75% !important;
+    height: 50% !important;
+  }
+// ion-menu {
+//     --ion-background-color: var(--ion-color-primary);
+//     --ion-text-color: var(--ion-color-primary-contrast);
+  
+//     ion-toolbar {
+//       --background: var(--ion-color-primary);
+//     }
+  
+//     // // ion-list {/* optional, but it needs when you use gradient as a background color.*/
+//     // //   background: transparent;
+//     // }
+//   }
+.loader {
+    background: #3333334f;
+    position: absolute;
+    height: 100vh;
+    width: 100vh;
+}
+.loader-content {
+    border-radius: 10px;
+    text-align: center;
+    padding: 2% 10%;
+    background: #fff;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.wheel {
+    border: 8px solid #f3f3f3; /* Light grey */
+    border-top: 8px solid #ffc409; /* Blue */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+.alert-head.sc-ion-alert-md {
+    background: #ffc409;
+    color: #333 !important;
+    margin-bottom: 10px;
+}
+.alert-head.sc-ion-alert-md > h2 {
+    color: #333;
+}
+button.alert-button.ion-focusable.ion-activatable.primaryButton.sc-ion-alert-md {
+    background: #ffc409;
+    color: #333 !important;
+    border-radius: 10px;
+}
+button.alert-button.ion-focusable.ion-activatable.alert-button-role-cancel.secondaryButton.sc-ion-alert-md {
+    background: #8d8a89;
+    color: #333;
+    border-radius: 10px;
+}

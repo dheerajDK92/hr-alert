@@ -1,0 +1,180 @@
+<app-header [headerText]="main"></app-header>
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row *ngIf="EmpData?.isHrAdmin" class="animate__animated animate__backInRight">
+      <ion-col size="6" text-left>
+        <ion-card div class="card" routerLink="/punch/Punch Attendance">
+          <img height="80" src="../../assets/icon/fingerprint.png" />
+          <ion-card-header>
+            <ion-card-subtitle><strong>Punch</strong></ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6" text-right>
+        <ion-card div class="card" routerLink="/workForce/Today WorkForce">
+          <img height="80" src="../../assets/icon/peoples.png" />
+          <ion-card-header>
+            <ion-card-subtitle><strong>Today's Workforce</strong></ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6" text-right>
+        <ion-card div class="card" routerLink="/report/Reports">
+          <img height="80" src="../../assets/icon/detailReport.png" />
+          <ion-card-header>
+            <ion-card-subtitle><strong>Reports</strong></ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6" text-left>
+        <ion-card div class="card" routerLink="/employee/Employee">
+          <img height="80" src="../../assets/icon/addEmploye.png" />
+          <ion-card-header>
+            <ion-card-subtitle><strong>Add Employee</strong></ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6" text-left>
+        <ion-card div class="card" routerLink="/scan-qr/Scan Barcode">
+          <img height="80" src="../../assets/icon/qrcode.png" />
+          <ion-card-header>
+            <ion-card-subtitle><strong>Scan Barcode</strong></ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6" text-left>
+        <ion-card div class="card" routerLink="/download-site-qrcode/Download Barcode">
+          <img height="80" src="../../assets/icon/qrcode.png" />
+          <ion-card-header>
+            <ion-card-subtitle><strong>Download Site Barcode</strong></ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6" text-right>
+        <ion-card div class="card" routerLink="/log-sheet/Log Sheet">
+          <img height="80" src="../../assets/icon/loan.png" />
+          <ion-card-header>
+            <ion-card-subtitle><strong>Log Sheet</strong></ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6" text-right>
+        <ion-card div class="card" routerLink="/generate-salary-slip/Generate Slip">
+          <img height="80" src="../../assets/icon/empReimbursement.png" />
+          <ion-card-header>
+            <ion-card-subtitle><strong>Generate Salary Slip</strong></ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6" text-right>
+        <ion-card div class="card" routerLink="/salary-slip/Salary Slip's">
+          <img height="80" src="../../assets/icon/secureData.png" />
+          <ion-card-header>
+            <ion-card-subtitle><strong>Salary Slip</strong></ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6" text-right>
+        <ion-card div class="card" routerLink="/salary-slip-report/Salary Report's">
+          <img height="80" src="../../assets/icon/secureData.png" />
+          <ion-card-header>
+            <ion-card-subtitle><strong>Salary Report</strong></ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6" text-right>
+        <ion-card div class="card" routerLink="/assets/Assets">
+          <img height="80" src="../../assets/icon/detailReport.png" />
+          <ion-card-header>
+            <ion-card-subtitle><strong>Assets</strong></ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <!-- Not HR Admin access - start-->
+    <ion-row *ngIf="!EmpData?.isHrAdmin">
+      <ion-col size="6" text-left>
+        <ion-card div class="card" routerLink="/empDashboard/Employ Dashboard">
+          <img height="80" src="../../assets/icon/empDashboard.png" />
+          <ion-card-header>
+            <ion-card-subtitle><strong>Dashboard</strong></ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6" text-left>
+        <ion-card div class="card" routerLink="/punch/Punch Attendance">
+          <img height="80" src="../../assets/icon/fingerprint-emp.png" />
+          <ion-card-header>
+            <ion-card-subtitle><strong>Punch</strong></ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6" text-left>
+        <ion-card div class="card" routerLink="/punch/Punch Attendance">
+          <img height="80" src="../../assets/icon/empPayslip.png" />
+          <ion-card-header>
+            <ion-card-subtitle><strong>Payslip</strong></ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6" text-left>
+        <ion-card div class="card" routerLink="/empLeave/Apply for Leave">
+          <img height="80" src="../../assets/icon/empLeave.png" />
+          <ion-card-header>
+            <ion-card-subtitle><strong>Leave Request</strong></ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6" text-left>
+        <ion-card div class="card" routerLink="/empReimbursement/Reimbursement">
+          <img height="80" src="../../assets/icon/empReimbursement.png" />
+          <ion-card-header>
+            <ion-card-subtitle><strong>Reimbursement</strong></ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6" text-left>
+        <ion-card div class="card" routerLink="/punch/Punch Attendance">
+          <img height="80" src="../../assets/icon/empTax.png" />
+          <ion-card-header>
+            <ion-card-subtitle><strong>TDS</strong></ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6" text-left>
+        <ion-card div class="card" routerLink="/advance/Advance">
+          <img height="80" src="../../assets/icon/empTax.png" />
+          <ion-card-header>
+            <ion-card-subtitle><strong>Advance</strong></ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6" text-left>
+        <ion-card div class="card" routerLink="/scan-qr/Scan Barcode">
+          <img height="80" src="../../assets/icon/qrcode.png" />
+          <ion-card-header>
+            <ion-card-subtitle><strong>Scan Barcode</strong></ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6" text-left>
+        <ion-card div class="card" routerLink="/download-site-qrcode/Download Barcode">
+          <img height="80" src="../../assets/icon/qrcode.png" />
+          <ion-card-header>
+            <ion-card-subtitle><strong>Download Site Barcode</strong></ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6" text-right>
+        <ion-card div class="card" routerLink="/salary-slip/Salary Slip's">
+          <img height="80" src="../../assets/icon/secureData.png" />
+          <ion-card-header>
+            <ion-card-subtitle><strong>Salary Slip</strong></ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+    <!-- End-->
+  </ion-grid>
+</ion-content>

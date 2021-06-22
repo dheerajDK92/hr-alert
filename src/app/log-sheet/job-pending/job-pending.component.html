@@ -1,0 +1,51 @@
+<ion-header translucent no-border>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start" (click)="cancelPopUp()">
+      <ion-button color="light">
+        <ion-icon name="arrow-back"></ion-icon>&nbsp;
+        Back
+      </ion-button>
+    </ion-buttons>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen="true" slot="fixed">
+  <div>
+    <h4 class="ion-text-center">My Job Pending List's</h4>
+    <ion-row class="header">
+      <ion-col col class="text-left">
+        <ion-label>#</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>Task For</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>Task</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>Task Date</ion-label>
+      </ion-col>
+    </ion-row>
+
+    <ion-row style="border-bottom: groove;" *ngFor="let item of scheduleTaskList; let i=index;">
+      <ion-col col class="text-left" style="width:10px">
+        <ion-label>{{i + 1}}</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>{{getEmpName(item.taskFor)}}</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>{{getTaskDetail(item.task)}}</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>{{item.taskDate | date }}</ion-label>
+      </ion-col>
+    </ion-row>
+    <p class="ion-text-center" *ngIf="scheduleTaskList.length == 0">No Result Found</p>
+  </div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="cancelPopUp()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

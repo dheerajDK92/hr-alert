@@ -1,0 +1,39 @@
+ion-menu-button {
+  color: var(--ion-color-primary);
+}
+.header{
+  border-bottom: groove;
+  background: #ffc409;
+    color: #333;
+}
+ion-row, ion-col {
+  font-size: 0.7em;
+}
+#map {
+  height: 31%;
+  position: absolute !important;
+  z-index: 9;
+  align-items: center;
+  width: 48%;
+  right: 0;
+  top: 43%;
+  font-size: 0.2em;
+}
+ion-fab-button.ion-color.ion-color-primary.md.ion-activatable.ion-focusable.hydrated {
+  height: 80px;
+  width: 80px;
+  border: 3px dotted #5260ff;
+  border-radius: 50%;
+}
+.blink_me {
+  animation: blinker 1s linear infinite;
+  text-align: center;
+  color: #5260ff;
+  font-size: 0.6em;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}

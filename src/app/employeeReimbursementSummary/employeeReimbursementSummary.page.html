@@ -1,0 +1,94 @@
+<app-header [headerText]="main"></app-header>
+<ion-header collapse="condense">
+  <ion-toolbar>
+    <ion-title size="large">Apply For Reimbursement</ion-title>
+  </ion-toolbar>
+</ion-header>
+<!-- <ion-content>
+  <ion-list-header color="light">Reimbursement, Advance, Leaves - Chart</ion-list-header>
+  <ion-card class="welcome-card">
+    <ion-card-header>
+      <ion-card-title>Reimbursement, Advance, Leaves</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div id="reimbursementSummaryChart" style="width:100%; height:400px;"></div>
+    </ion-card-content>
+  </ion-card>
+</ion-content> -->
+<ion-content *ngIf="skelenton">
+  <app-skeleton></app-skeleton>
+</ion-content>
+<ion-content *ngIf="!skelenton">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="10">
+        <ion-searchbar (ionChange)="searchBarChange($event)" placeholder="Search By Email..."></ion-searchbar>
+      </ion-col>
+      <ion-col size="2" class="ion-text-right"> <!--  *ngIf="EmpData.isHrAdmin" -->
+        <ion-button size="small" (click)="downloadPdf()">
+          <ion-icon name="download-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4" class="ion-tect-center">
+        <ion-badge color="success">Approved({{totalApproved?.length}})</ion-badge>
+      </ion-col>
+      <ion-col size="4" class="ion-tect-center">
+        <ion-badge color="warning">In Progress({{totalInProgress?.length}})</ion-badge>
+      </ion-col>
+      <ion-col size="4" class="ion-tect-center">
+        <ion-badge color="danger">Rejected({{totalRejected?.length}})</ion-badge>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-card *ngFor="let item of reimbursementByEmploy; let i=index;">
+    <ion-card-header>
+      <ion-card-subtitle>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6" class="ion-text-left">
+              <ion-badge *ngIf="item.status == 'Approved'" color="success">Approved</ion-badge>
+              <ion-badge *ngIf="item.status == 'inProgress'" color="warning">In Progress</ion-badge>
+              <ion-badge *ngIf="item.status == 'Rejected'" color="danger">Rejected</ion-badge>
+            </ion-col>
+            <ion-col size="6" class="ion-text-right">
+              <ion-badge color="primary">{{i + 1}}</ion-badge>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-subtitle>
+      <ion-card-title>{{item.reimbursementType}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Amount:</strong> {{item.amount}}</p>
+      <p><strong>Remarks:</strong> {{item.remarks}}</p>
+      <p><strong>Expense Date:</strong> {{item.expenseDate | date}}</p>
+      <p><strong>Destination:</strong> {{item.destination}}</p>
+      <p><strong>Phone:</strong> {{item.phone}}, <strong>Email:</strong> {{item.email}}</p>
+      <p><strong>HR Comments:</strong> {{item.hrRemarks}}</p>
+      <p *ngIf="(this.EmpData.isHrAdmin || this.EmpData.isReportingManager) && item.status == 'inProgress'">
+        <ion-button color="danger" size="small" (click)="performRejectAction(item)">
+          <ion-icon name="close-circle-outline"></ion-icon> Reject
+        </ion-button>
+        <ion-button color="success" size="small" (click)="performApproveAction(item)">
+          <ion-icon name="checkmark-circle-outline"></ion-icon> Approve
+        </ion-button>
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="reimbursementByEmploy?.length == 0">
+    <ion-card-content>
+      <p><strong>No Result Found.</strong></p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="backButton()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

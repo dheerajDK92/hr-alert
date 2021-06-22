@@ -1,0 +1,52 @@
+<ion-header translucent no-border>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start" (click)="cancelPopUp()">
+      <ion-button color="light">
+        <ion-icon name="arrow-back"></ion-icon>&nbsp;
+        Back To Directory
+      </ion-button>
+    </ion-buttons>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen="true" slot="fixed">
+  <div class="card">
+    <div class="header">
+      <div class="avatar ion-text-center">
+        <img [src]="empData?.logoID" *ngIf="empData?.logoID" />
+        <h2 *ngIf="!empData?.logoID">
+          <ion-icon name="person-outline"></ion-icon>
+        </h2>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="user-meta ion-text-center">
+        <h3><strong>{{empData?.empname}}</strong></h3>
+        <h5>{{empData?.DOB | date}}</h5>
+        <h6>Email:<ion-chip>
+            <ion-label>{{empData?.email}}</ion-label>
+          </ion-chip>
+        </h6>
+        <h6>Phone: <ion-chip>
+            <ion-label>{{empData?.phone}}</ion-label>
+          </ion-chip>
+        </h6>
+      </div>
+      <div class="ion-text-center">
+        <ngx-qrcode [elementType]="elementType" [value]="value" cssClass="qrClass" errorCorrectionLevel="L">
+        </ngx-qrcode>
+      </div>
+      <ion-button expand="full" color="primary">{{empData?.email}}</ion-button>
+    </div>
+  </div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="cancelPopUp()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="download()">
+      <ion-icon name="download-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

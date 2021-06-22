@@ -1,0 +1,11 @@
+{
+  "name": "HR Alert",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular",
+  "v2": true,
+  "typescript": true,
+  "id": "Dka@n45Ub1992"
+}

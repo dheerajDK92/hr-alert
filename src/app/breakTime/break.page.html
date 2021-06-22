@@ -1,0 +1,51 @@
+<app-header [headerText]="main"></app-header>
+<ion-content [fullscreen]="true">
+  <div id="container" class="text-center">
+    <strong class="capitalize">
+      <ion-fab-button color="primary" *ngIf="isStartBreak" (click)="startBreak()">{{pageText?.start}}</ion-fab-button>
+      <ion-fab-button color="primary" *ngIf="!isStartBreak" (click)="stopBreak()">{{pageText?.stop}}</ion-fab-button>
+
+      <p *ngIf="!isStartBreak" class="blink_me" color="primary">{{pageText?.brekGoingOn}}</p>
+      <hr />
+    </strong>
+    <p><strong>{{pageText?.title}}</strong></p>
+    <!-- Table Start -->
+    <ion-row class="header">
+      <ion-col col class="text-left">
+        <ion-label>#</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>Date</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>Start Time</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>Stop Time</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>Total Break</ion-label>
+      </ion-col>
+    </ion-row>
+
+    <ion-row style="border-bottom: groove;" *ngFor="let item of currentBreak; let i=index;">
+      <ion-col col class="text-left">
+        <ion-label><strong>{{i + 1}}</strong></ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>{{item.breakDate}}</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>{{item.startTime}}</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>{{item.stopTime}}</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label *ngIf="item.stopTime != ''">{{diff_minutes(item.startTime, item.stopTime)}}</ion-label>
+      </ion-col>
+    </ion-row>
+    <p class="ion-text-center" *ngIf="currentBreak?.length == 0">{{pageText?.noresult}}</p>
+    <!-- Table End -->
+  </div>
+</ion-content>

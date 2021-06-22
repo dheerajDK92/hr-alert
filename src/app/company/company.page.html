@@ -1,0 +1,47 @@
+<ion-header translucent no-border>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start" (click)="cancelPopUp()">
+      <ion-button color="light">
+        <ion-icon name="arrow-back"></ion-icon>&nbsp;
+        Back To Home
+      </ion-button>
+    </ion-buttons>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen="true" slot="fixed">
+  <div class="card">
+    <div class="header">
+      <div class="avatar ion-text-center">
+        <img [src]="EmpData?.logo" *ngIf="EmpData?.logo" />
+        <h2 *ngIf="!EmpData?.logo">
+          <ion-icon name="person-outline"></ion-icon>
+        </h2>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="user-meta ion-text-center">
+        <h3><strong>{{appName}}</strong></h3>
+        <h5><small>{{CmpData?.description}}</small></h5>
+        <h5>{{CmpData?.DOB | date}}</h5>
+        <h6>Email:<ion-chip>
+            <ion-label>{{CmpData?.email}}</ion-label>
+          </ion-chip>
+        </h6>
+        <h6>Phone: <ion-chip>
+            <ion-label>{{CmpData?.phone}}</ion-label>
+          </ion-chip>
+        </h6>
+        <p>{{CmpData?.address}}, {{CmpData?.address2}}</p>
+        <p>{{CmpData?.city}} ({{CmpData?.pincode}})</p>
+        <p>{{CmpData?.country}}</p>
+      </div>
+      <ion-button expand="full" color="primary">{{appName}}</ion-button>
+    </div>
+  </div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="cancelPopUp()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

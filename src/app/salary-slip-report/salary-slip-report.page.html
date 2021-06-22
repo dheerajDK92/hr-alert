@@ -1,0 +1,151 @@
+<app-header [headerText]="main"></app-header>
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-item>
+      <ion-label>Select Month:<sup class="required">*</sup></ion-label>
+      <ion-datetime [(ngModel)]="monthForSalary" name="month" ngModel displayFormat="MM/YYYY">
+      </ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-button size="small" color="primary" (click)="searchSalaryByMonth()">Search</ion-button>
+    </ion-item>
+    <ion-item *ngIf="salaryDetails?.length > 0">
+      <ion-button size="small" color="primary" (click)="downloadSalaryReports()">Download PDF Format Salary Reports
+      </ion-button>
+    </ion-item>
+    <ion-item *ngIf="salaryDetails?.length > 0">
+      <ion-button size="small" color="primary" (click)="downloadCSVSalaryReport()">Download CSV Format Salary
+        Reports
+      </ion-button>
+    </ion-item>
+
+    <!-- Table Start -->
+    <h4 class="ion-text-center">Salary Report for {{ salaryMonth }}</h4>
+    <ion-row class="header">
+      <ion-col col class="text-left">
+        <ion-label>#</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>Name</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>Emp ID</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>Gross Fixed</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>Paid Days</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>Baisc</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>DA</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>HRA</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>Other Earning</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>Gross Salary</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>PF</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>PTAX</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>ESIC</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>LWF</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>Loan Dedn.</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>Adv Dedn.</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>Other Dedn.</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>Gross Dedn.</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>Net Sal.</ion-label>
+      </ion-col>
+    </ion-row>
+
+    <ion-row style="border-bottom: groove;" *ngFor="let item of salaryDetails; let i=index;">
+      <ion-col col class="text-left" style="width:10px">
+        <ion-label>{{i + 1}}</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>{{item.empName}}</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>{{item.employeeId}}</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>{{item.GROSSFIXED}}</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>{{item.paidDays}}</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>{{item.BASIC}}</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>{{item.DA}}</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>{{item.HRA}}</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>{{item.OtherEarning}}</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>{{item.GROSSEARNING}}</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>{{item.PF}}</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>{{item.PTAX}}</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>{{item.ESICEmployee}}</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>{{item.MLWF}}</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>{{item.LoanDeduction}}</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>{{item.AdvDeduction}}</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>{{item.OtherDeduction}}</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>{{item.GROSSDEDUCION}}</ion-label>
+      </ion-col>
+      <ion-col col class="text-left">
+        <ion-label>{{item.NETEARNING}}</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-card *ngIf="salaryDetails?.length == 0">
+      <ion-card-content>
+        <p><strong>No Result Found.</strong></p>
+      </ion-card-content>
+    </ion-card>
+
+
+  </ion-grid>
+</ion-content>

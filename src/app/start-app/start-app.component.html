@@ -1,0 +1,171 @@
+<ion-content>
+  <ion-slides #walkMeSlider (ionSlideDidChange)="SlideChanges($event)" pager="false" [options]="startAppSliderOptions">
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>{{appName}}</ion-card-subtitle>
+        </ion-card-header>
+        <img height="120" src="../../assets/image/alertLogo.jpg" />
+        <img height="120" src="../../assets/icon/employeeManagement.png" />
+        <ion-card-content>
+          <h4><small>Alert Care &amp; Construction Services Pvt. Ltd.</small></h4>
+          <h4><small>ISO 9001-2015 &amp; 14001-2015/OHSAS 18001-2007 Certified Company</small></h4>
+        </ion-card-content>
+        <ion-footer>
+          <ion-row class="ion-padding">
+            <ion-col size="6" class="ion-float-left ion-padding-horizontal">&nbsp;</ion-col>
+            <ion-col size="6" class="ion-float-right ion-padding-horizontal">
+              <ion-button color="success" (click)="nextSlide()">Next</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-footer>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>{{appName}}</ion-card-subtitle>
+          <ion-card-title>Employee Management</ion-card-title>
+        </ion-card-header>
+        <img height="120" src="../../assets/icon/employeeManagement.png" />
+        <ion-card-content>
+          Welcome to most configurable employee management app, with attendance and salary.
+        </ion-card-content>
+        <ion-footer>
+          <ion-row class="ion-padding">
+            <ion-col size="6" class="ion-float-left ion-padding-horizontal">
+              <ion-button color="warning" (click)="previousSlide()">Back</ion-button>
+            </ion-col>
+            <ion-col size="6" class="ion-float-right ion-padding-horizontal">
+              <ion-button color="success" (click)="nextSlide()">Next</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-footer>
+      </ion-card>
+
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>{{appName}}</ion-card-subtitle>
+          <ion-card-title>QR Based Attendance</ion-card-title>
+        </ion-card-header>
+        <img height="120" src="../../assets/icon/selfieBasedAttendance.png" />
+        <ion-card-content>
+          There are many ways of collecting attendance, Manual Location, Facial Recognition, Barcode.
+        </ion-card-content>
+        <ion-footer>
+          <ion-row class="ion-padding">
+            <ion-col size="6" class="ion-float-left ion-padding-horizontal">
+              <ion-button color="warning" (click)="previousSlide()">Back</ion-button>
+            </ion-col>
+            <ion-col size="6" class="ion-float-right ion-padding-horizontal">
+              <ion-button color="success" (click)="nextSlide()">Next</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-footer>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>{{appName}}</ion-card-subtitle>
+          <ion-card-title>Configurable Rules</ion-card-title>
+        </ion-card-header>
+        <img height="120" src="../../assets/icon/configurationRules.png" />
+        <ion-card-content>
+          Configure your attendance and salary rules smoothly, employee level changes are also possible.
+        </ion-card-content>
+        <ion-footer>
+          <ion-row class="ion-padding">
+            <ion-col size="6" class="ion-float-left ion-padding-horizontal">
+              <ion-button color="warning" (click)="previousSlide()">Back</ion-button>
+            </ion-col>
+            <ion-col size="6" class="ion-float-right ion-padding-horizontal">
+              <ion-button color="success" (click)="nextSlide()">Next</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-footer>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>{{appName}}</ion-card-subtitle>
+          <ion-card-title>Single Click Payroll</ion-card-title>
+        </ion-card-header>
+        <img height="120" src="../../assets/icon/singleClickPayroll.png" />
+        <ion-card-content>
+          Advance management and payroll generation is no more a headache, try it once!
+        </ion-card-content>
+        <ion-footer>
+          <ion-row class="ion-padding">
+            <ion-col size="6" class="ion-float-left ion-padding-horizontal">
+              <ion-button color="warning" (click)="previousSlide()">Back</ion-button>
+            </ion-col>
+            <ion-col size="6" class="ion-float-right ion-padding-horizontal">
+              <ion-button color="success" (click)="nextSlide()">Next</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-footer>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>{{appName}}</ion-card-subtitle>
+          <ion-card-title>Analytical Reporting</ion-card-title>
+        </ion-card-header>
+        <img height="120" src="../../assets/icon/analyticsReporting.png" />
+        <ion-card-content>
+          Generate all important reports from system directly, no manual effort required.
+        </ion-card-content>
+        <ion-footer>
+          <ion-row class="ion-padding ion-justify-content-end">
+            <ion-col size="6" class="ion-float-left ion-padding-horizontal">
+              <ion-button color="warning" (click)="previousSlide()">Back</ion-button>
+            </ion-col>
+            <ion-col size="6" class="ion-float-right ion-padding-horizontal">
+              <ion-button color="success" (click)="start()">
+                <ion-icon name="arrow-forward-circle-outline"></ion-icon> Start
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-footer>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>{{appName}}</ion-card-subtitle>
+          <ion-card-title>Permission Required</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <div><strong>Location: </strong>
+            Need permission to mark accurate attendance.
+          </div>
+          <hr />
+          <div><strong>Contacts: </strong>
+            Need permission to easily enter and maintain employee data.
+          </div>
+          <hr />
+          <div><strong>Camera: </strong>
+            Need permission to take selfie attendance.
+          </div>
+        </ion-card-content>
+        <ion-footer>
+          <ion-row class="ion-padding ion-justify-content-end">
+            <ion-col size="6" class="ion-float-left ion-padding-horizontal">
+              &nbsp;
+            </ion-col>
+            <ion-col size="6" class="ion-float-right ion-padding-horizontal">
+              <ion-button color="success" (click)="launchPermission()">
+                <ion-icon name="arrow-redo-circle-outline"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-footer>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

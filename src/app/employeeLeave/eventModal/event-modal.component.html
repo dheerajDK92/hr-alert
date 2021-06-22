@@ -1,0 +1,35 @@
+<ion-header collapse="condense">
+	<ion-toolbar>
+		<ion-title size="large">Apply For Leave</ion-title>
+	</ion-toolbar>
+</ion-header>
+<ion-content>
+	<ion-list padding>
+		<ion-item>
+			<ion-label>Start Date</ion-label>
+			<ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="event.startTime" [min]="minDate"></ion-datetime>
+		</ion-item>
+
+		<ion-item>
+			<ion-label>End Date</ion-label>
+			<ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="event.endTime" [min]="minDate"></ion-datetime>
+		</ion-item>
+
+		<ion-item>
+			<ion-label>Select Reason</ion-label>
+			<ion-select>
+				<ion-select-option (ionSelect)="optionSelected($event)" *ngFor="let room of rooms$ | async"
+					[value]="room">{{room.name}}</ion-select-option>
+			</ion-select>
+		</ion-item>
+
+		<ion-item>
+			<ion-label>All Day?</ion-label>
+			<ion-checkbox [(ngModel)]="event.allDay"></ion-checkbox>
+		</ion-item>
+		<ion-button color="primary" (click)="save()">Apply</ion-button>
+
+	</ion-list>
+
+
+</ion-content>
